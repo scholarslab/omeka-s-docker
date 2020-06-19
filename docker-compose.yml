@@ -4,6 +4,8 @@ services:
   db:
     image: mysql:5.7
     restart: always
+    volumes:
+        - ./mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: omeka
       MYSQL_DATABASE: omeka
@@ -29,4 +31,3 @@ services:
       - ./modules/:/var/www/html/modules/
       - ./themes/custom/:/var/www/html/themes/custom/
     restart: always
-
