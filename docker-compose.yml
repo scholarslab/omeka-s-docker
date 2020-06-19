@@ -5,7 +5,7 @@ services:
     image: mysql:5.7
     restart: always
     volumes:
-        - ./mysql-data:/var/lib/mysql
+        - mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: omeka
       MYSQL_DATABASE: omeka
@@ -28,6 +28,13 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./modules/:/var/www/html/modules/
-      - ./themes/custom/:/var/www/html/themes/custom/
+      - modules/:/var/www/html/modules/
+      - theme/:/var/www/html/themes/custom/
+      - item_files/:/var/www/html/files
     restart: always
+
+volumes:
+  modules:
+  theme:
+  item_files:
+  mysql-data:
